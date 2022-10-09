@@ -19,7 +19,7 @@ const students = [
     course: "Accounting",
   },
   {
-    name: "Ryan",
+    name: "Ryan Jhon",
     lastname: "Ray",
     age: 23,
     course: "Web Development",
@@ -33,13 +33,16 @@ const students = [
 ];
 
 // Write your code here!
-const result = students.map(({ name, lastname, age }) => ({
-  student: `${name} ${lastname}`,
-  age
-}))
-  .filter(student => student.age > 20)
-  .sort((a, b) => b.age - a.age)
-  .reduce((total, student) => total + student.age, 0)
+for (let i = 0; i < students.length; i++) {
+  console.log(students[i])
+}
 
+const fullstudentsCourses = []
 
-console.log(result)
+students.forEach((student, index, students) => {
+  //console.log(student.name + ' Esta cursando: ' + student.course) 
+  fullstudentsCourses.push(student.name + ' Esta cursando: ' + student.course)
+})
+
+console.log(fullstudentsCourses)
+

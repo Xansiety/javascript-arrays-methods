@@ -33,13 +33,9 @@ const students = [
 ];
 
 // Write your code here!
-const result = students.map(({ name, lastname, age }) => ({
-  student: `${name} ${lastname}`,
-  age
-}))
-  .filter(student => student.age > 20)
-  .sort((a, b) => b.age - a.age)
-  .reduce((total, student) => total + student.age, 0)
 
+const resultTodosCumplen = students.every(student => student.name !== '')
+console.log({ resultTodosCumplen })
 
-console.log(result)
+const resultNoTodosCumplen = students.every(student => student.age === 20)
+console.log({ resultNoTodosCumplen })

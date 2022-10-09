@@ -33,13 +33,23 @@ const students = [
 ];
 
 // Write your code here!
-const result = students.map(({ name, lastname, age }) => ({
-  student: `${name} ${lastname}`,
-  age
-}))
-  .filter(student => student.age > 20)
-  .sort((a, b) => b.age - a.age)
-  .reduce((total, student) => total + student.age, 0)
 
+const resultSorted = students.sort(function(first, second) {
+  if (first.age > second.age) {
+    return 1
+  }
+  else {
+    return -1
+  }
+})
+console.log({ resultSorted })
 
-console.log(result)
+const resultSortedArrow = students.sort((a, b) => a.age > b.age ? 1 : -1)
+console.log({ resultSortedArrow })
+
+const resultSortedResta = students.sort((a, b) => a.age - b.age)
+console.log({ resultSortedResta })
+
+const numbers = [10, 30, 1000, 100]
+console.log(numbers.sort())
+console.log(numbers.sort((a, b) => a - b))

@@ -33,13 +33,15 @@ const students = [
 ];
 
 // Write your code here!
-const result = students.map(({ name, lastname, age }) => ({
-  student: `${name} ${lastname}`,
-  age
-}))
-  .filter(student => student.age > 20)
-  .sort((a, b) => b.age - a.age)
-  .reduce((total, student) => total + student.age, 0)
+const resultFunction = students.find(function(student) {
+  if (student.name === 'Ryan') { return 1 }
+})
 
+const resultArrow = students.find(s => s.name === 'Ryan')
 
-console.log(result)
+// Por defecto se retorna undefined si no se encuentra nada
+const resultArrowUndefined = students.find(s => s.name === 'RyanX')
+
+console.log({ resultFunction })
+console.log({ resultArrow })
+console.log({ resultArrowUndefined })

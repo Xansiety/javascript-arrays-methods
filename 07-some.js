@@ -33,13 +33,24 @@ const students = [
 ];
 
 // Write your code here!
-const result = students.map(({ name, lastname, age }) => ({
-  student: `${name} ${lastname}`,
-  age
-}))
-  .filter(student => student.age > 20)
-  .sort((a, b) => b.age - a.age)
-  .reduce((total, student) => total + student.age, 0)
+
+// Solo retorna un valor booleano si se cumple la condicion dada si al menos se encuentra uno que la cumpla
+
+const result = students.some(function(student) {
+  if (student.age > 23) {
+    return true
+  }
+})
+console.log({ result })
 
 
-console.log(result)
+const resultLastName = students.some(function(student) {
+  if (student.lastname === 'Doe') {
+    return true
+  }
+})
+console.log({ resultLastName })
+
+
+const resultLastNameArrow = students.some((student) => student.lastname === 'Doe')
+console.log({ resultLastNameArrow })

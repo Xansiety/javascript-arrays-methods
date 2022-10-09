@@ -33,13 +33,22 @@ const students = [
 ];
 
 // Write your code here!
-const result = students.map(({ name, lastname, age }) => ({
-  student: `${name} ${lastname}`,
-  age
-}))
-  .filter(student => student.age > 20)
-  .sort((a, b) => b.age - a.age)
-  .reduce((total, student) => total + student.age, 0)
 
+const developers = []
+for (let i = 0; i < students.length; i++) {
+  if (students[i].course === 'Web Development') {
+    developers.push(students[i])
+  }
+}
+//console.log(developers)
+
+// Forma optima
+//ECMAScript 5 funcion anonima
+const resultAnonima = students.filter(function(student) {
+  if (student.course === 'Web Development') return true
+})
+
+// Con lambda
+const result = students.filter(student => student.course === 'Web Development')
 
 console.log(result)
